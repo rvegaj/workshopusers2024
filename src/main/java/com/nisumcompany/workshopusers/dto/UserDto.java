@@ -5,6 +5,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
@@ -21,10 +24,16 @@ public class UserDto implements Serializable {
   @JsonProperty
   private Long id;
   @JsonProperty
+  @NotBlank(message = "El nombre es requerido")
+  @NotNull(message = "El nombre es requerido")
   private String name;
   @JsonProperty
+  @NotBlank(message = "El email es requerido")
+  @NotNull(message = "El email es requerido")
   private String email;
   @JsonProperty
+  @NotBlank(message = "La constraseña es requerida")
+  @NotNull(message = "La constraseña es requerida")
   private String password;
   @JsonProperty
   private LocalDate createDate;
@@ -38,6 +47,8 @@ public class UserDto implements Serializable {
   private LocalDate lastLogin;
 
   @JsonProperty
+  @NotNull
+  @NotEmpty
   private List<PhoneDto> phones = new ArrayList<>();
 
 }

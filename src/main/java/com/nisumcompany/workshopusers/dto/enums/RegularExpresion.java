@@ -1,7 +1,5 @@
 package com.nisumcompany.workshopusers.dto.enums;
 
-import org.springframework.beans.factory.annotation.Value;
-
 /**
  * Enumerado para expresiones regulares.
  */
