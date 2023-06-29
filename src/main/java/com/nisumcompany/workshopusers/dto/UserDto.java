@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -49,6 +50,7 @@ public class UserDto implements Serializable {
   @JsonProperty
   @NotNull
   @NotEmpty
+  @Valid
   private List<PhoneDto> phones = new ArrayList<>();
 
 }

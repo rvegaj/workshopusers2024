@@ -17,7 +17,7 @@ public class ErrorHandler  extends ResponseEntityExceptionHandler {
   }
 
   @ExceptionHandler(ExceptionUserExists.class)
-  public ResponseEntity<ErrorResponse> methodArgumentNotValidException(HttpServletRequest request, ExceptionUserExists e) {
+  public ResponseEntity<ErrorResponse> methodEmailExistsException(HttpServletRequest request, ExceptionUserExists e) {
     this.printErrorRequest(request);
     ErrorResponse errorResponse = new ErrorResponse();
     errorResponse.setMessage(e.getMessage());
