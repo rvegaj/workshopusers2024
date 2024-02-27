@@ -1,4 +1,4 @@
-package com.nisumcompany.workshopusers.mapper;
+package com.nisumcompany.workshopusers.model.mapper;
 
 import com.nisumcompany.workshopusers.dto.PhoneDto;
 import com.nisumcompany.workshopusers.model.Phone;

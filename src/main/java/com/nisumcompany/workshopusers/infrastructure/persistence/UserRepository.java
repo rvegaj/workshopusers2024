@@ -1,4 +1,4 @@
-package com.nisumcompany.workshopusers.dao;
+package com.nisumcompany.workshopusers.infrastructure.persistence;
 
 
 import com.nisumcompany.workshopusers.model.User;

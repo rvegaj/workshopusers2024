@@ -1,13 +1,16 @@
 package com.nisumcompany.workshopusers.service;
+
 import com.nisumcompany.workshopusers.common.Constants;
+import com.nisumcompany.workshopusers.common.assemblers.UserResponseAssembler;
 import com.nisumcompany.workshopusers.common.validator.ValidationService;
 import com.nisumcompany.workshopusers.common.validator.ValidationsRegexp;
 import com.nisumcompany.workshopusers.configuration.JwtUtils;
-import com.nisumcompany.workshopusers.dao.UserRepository;
 import com.nisumcompany.workshopusers.dto.UserDto;
-import com.nisumcompany.workshopusers.web.exceptions.ExceptionUserExists;
-import com.nisumcompany.workshopusers.mapper.UserMapper;
+import com.nisumcompany.workshopusers.dto.UserResponseDto;
+import com.nisumcompany.workshopusers.infrastructure.exceptions.ExceptionUserExists;
+import com.nisumcompany.workshopusers.infrastructure.persistence.UserRepository;
 import com.nisumcompany.workshopusers.model.User;
+import com.nisumcompany.workshopusers.model.mapper.UserMapper;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
@@ -38,7 +41,7 @@ public class UserServiceImpl implements UserService {
     return userRepository.findByEmail(email);
   }
   @Override
-  public UserDto createUser(UserDto userDto) {
+  public UserResponseDto createUser(UserDto userDto) {
         validationService.validationRequest(userDto);
         validationsRegexp.validateEmailAndPassword(userDto);
         User userResponse = findById(userDto.getEmail());
@@ -50,7 +53,7 @@ public class UserServiceImpl implements UserService {
           UUID uuid = UUID.randomUUID();
           userDto.setId(uuid.toString());
           userDto.setToken(jwtUtils.createToken(userDto.getEmail()));
-          return userMapper.userModelToUserDto(
+          return UserResponseAssembler.convertToDto(
               userRepository.save(userMapper.userDtoToUserModel(userDto)));
         }
         else

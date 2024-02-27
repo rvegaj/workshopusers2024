@@ -2,7 +2,7 @@ package com.nisumcompany.workshopusers.common.validator;
 
 import com.nisumcompany.workshopusers.common.Constants;
 import com.nisumcompany.workshopusers.dto.UserDto;
-import com.nisumcompany.workshopusers.web.exceptions.ExceptionRequestInvalid;
+import com.nisumcompany.workshopusers.infrastructure.exceptions.ExceptionRequestInvalid;
 import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.validation.ConstraintViolation;
@@ -25,9 +25,9 @@ public class ValidationService {
   public void validationRequest (UserDto userDto){
     ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
     Validator validator = factory.getValidator();
-    Set<ConstraintViolation<UserDto>> errores = validator.validate(userDto);
+    Set<ConstraintViolation<UserDto>> errors = validator.validate(userDto);
 
-    for (ConstraintViolation<UserDto> error : errores) {
+    for (ConstraintViolation<UserDto> error : errors) {
       log.info(error.getMessage());
       throw new ExceptionRequestInvalid(Constants.MESSAGE_ERROR_REQUEST_INVALID);
     }
