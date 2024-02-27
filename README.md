@@ -20,10 +20,11 @@ Se desarrolla api que permite crear usuarios teniendo en cuenta los siguientes c
   Se debe descargar el código y descargar las dependiencias y ejecutar.
 
   La url del servicio es:
-   http://localhost:8080/api/v1/users/  - POST. El request utilizado es el enviado en el documento del ejercicio.
-  La URL de la consola H2 es:
-  http://localhost:8080/h2-console/ con los paramteros de conexión de archivo application.yml del servicio
-  La Url del swagger es:
-  http://localhost:8080/swagger-ui/index.html
+
+http://localhost:8080/api/v1/user/ - POST. El request utilizado es el enviado en el documento del ejercicio.
+La URL de la consola H2 es:
+http://localhost:8080/h2-console/ con los paramteros de conexión de archivo application.yml del servicio
+La Url del swagger es:
+http://localhost:8080/swagger-ui/index.html
   
   

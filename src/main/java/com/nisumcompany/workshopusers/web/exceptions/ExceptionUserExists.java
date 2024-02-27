@@ -1,8 +1,6 @@
-package com.nisumcompany.workshopusers.infraestructure.web.exceptions;
+package com.nisumcompany.workshopusers.web.exceptions;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Getter
 public class ExceptionUserExists extends RuntimeException{

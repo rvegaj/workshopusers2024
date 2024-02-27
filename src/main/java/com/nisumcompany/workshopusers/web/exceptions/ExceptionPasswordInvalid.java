@@ -1,4 +1,4 @@
-package com.nisumcompany.workshopusers.infraestructure.web.exceptions;
+package com.nisumcompany.workshopusers.web.exceptions;
 
 import lombok.Getter;
 

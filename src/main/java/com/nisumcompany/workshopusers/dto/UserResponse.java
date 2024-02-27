@@ -17,22 +17,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class UserDto implements Serializable {
+public class UserResponse implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
   private String id;
 
-  @NotBlank(message = "El nombre es requerido")
-  @NotNull(message = "El nombre es requerido")
   private String name;
 
-  @NotBlank(message = "El email es requerido")
-  @NotNull(message = "El email es requerido")
   private String email;
 
-  @NotBlank(message = "La constraseña es requerida")
-  @NotNull(message = "La constraseña es requerida")
   private String password;
 
   private LocalDate createDate;
@@ -44,11 +38,5 @@ public class UserDto implements Serializable {
   private String token;
 
   private LocalDate lastLogin;
-
-
-  @NotNull
-  @NotEmpty
-  @Valid
-  private List<PhoneDto> phones = new ArrayList<>();
 
 }

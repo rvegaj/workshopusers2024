@@ -2,25 +2,32 @@ package com.nisumcompany.workshopusers.common.validator;
 
 import com.nisumcompany.workshopusers.common.Constants;
 import com.nisumcompany.workshopusers.common.Utils;
-import com.nisumcompany.workshopusers.dto.enums.RegularExpresion;
-import com.nisumcompany.workshopusers.infraestructure.web.exceptions.ExceptionRequestInvalid;
+import com.nisumcompany.workshopusers.dto.UserDto;
+import com.nisumcompany.workshopusers.web.exceptions.ExceptionRequestInvalid;
+import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Slf4j
-public final class ValidationsRegexp {
-  public  static void validateEmail(String email) throws ExceptionRequestInvalid {
+@Service
+public class ValidationsRegexp {
 
-      log.info("validateEmail: " + email);
-      if (!Utils.validateRegex(email, RegularExpresion.REGEX_EMAIL.getExpression())) {
-        log.error("Correo Electrónico no válido - validateEmail: " + email);
+  @Value("${spring.regular-expression.email}")
+  private  String regularExpEmail;
+
+  @Value("${spring.regular-expression.password}")
+  private  String regularExpPassword;
+  public  void validateEmailAndPassword(UserDto userDto) throws ExceptionRequestInvalid {
+
+      log.info("validateEmail: " + userDto.getEmail());
+      if (!Utils.validateRegex(userDto.getEmail(), regularExpEmail)) {
+        log.error("Correo Electrónico no válido - validateEmail: " + userDto.getEmail());
         throw new ExceptionRequestInvalid(Constants.MESSAGE_ERROR_EMAIL_INVALID);
       }
+    if (!Utils.validateRegex(userDto.getPassword(), regularExpPassword)) {
+      log.error("Contraseña no válida - validatePassword: " + userDto.getPassword());
+      throw new ExceptionRequestInvalid(Constants.MESSAGE_ERROR_PASSWORD_BAD);
+    }
   }
 
-  public static void validatePassword(String password) throws ExceptionRequestInvalid {
-      if (!Utils.validateRegex(password, RegularExpresion.REGEX_PASSWORD.getExpression())) {
-        log.error("Contraseña no válida - validatePassword: " + password);
-        throw new ExceptionRequestInvalid(Constants.MESSAGE_ERROR_PASSWORD_BAD);
-      }
-  }
 }

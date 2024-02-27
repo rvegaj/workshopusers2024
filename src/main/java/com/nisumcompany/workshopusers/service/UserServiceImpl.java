@@ -2,12 +2,14 @@ package com.nisumcompany.workshopusers.service;
 import com.nisumcompany.workshopusers.common.Constants;
 import com.nisumcompany.workshopusers.common.validator.ValidationService;
 import com.nisumcompany.workshopusers.common.validator.ValidationsRegexp;
+import com.nisumcompany.workshopusers.configuration.JwtUtils;
 import com.nisumcompany.workshopusers.dao.UserRepository;
 import com.nisumcompany.workshopusers.dto.UserDto;
-import com.nisumcompany.workshopusers.infraestructure.web.exceptions.ExceptionUserExists;
+import com.nisumcompany.workshopusers.web.exceptions.ExceptionUserExists;
 import com.nisumcompany.workshopusers.mapper.UserMapper;
 import com.nisumcompany.workshopusers.model.User;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,14 +19,18 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
   private final UserRepository userRepository;
   private final UserMapper userMapper;
-
   private final ValidationService validationService;
 
+  private final ValidationsRegexp validationsRegexp;
+  private final JwtUtils jwtUtils;
+
   public UserServiceImpl(UserRepository userRepository, UserMapper userMapper,
-      ValidationService validationService) {
+      ValidationService validationService, ValidationsRegexp validationsRegexp, JwtUtils jwtUtils) {
     this.userRepository = userRepository;
     this.userMapper = userMapper;
     this.validationService = validationService;
+    this.validationsRegexp = validationsRegexp;
+    this.jwtUtils = jwtUtils;
   }
 
   @Override
@@ -34,16 +40,16 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserDto createUser(UserDto userDto) {
         validationService.validationRequest(userDto);
-        ValidationsRegexp.validateEmail(userDto.getEmail());
-        ValidationsRegexp.validatePassword(userDto.getPassword());
+        validationsRegexp.validateEmailAndPassword(userDto);
         User userResponse = findById(userDto.getEmail());
-        if(userResponse == null) {
+        if(Objects.isNull(userResponse)) {
           userDto.setModified(LocalDate.now());
           userDto.setLastLogin(LocalDate.now());
           userDto.setCreateDate(LocalDate.now());
           userDto.setIsActive(Boolean.TRUE);
           UUID uuid = UUID.randomUUID();
-          userDto.setToken(uuid.toString());
+          userDto.setId(uuid.toString());
+          userDto.setToken(jwtUtils.createToken(userDto.getEmail()));
           return userMapper.userModelToUserDto(
               userRepository.save(userMapper.userDtoToUserModel(userDto)));
         }
