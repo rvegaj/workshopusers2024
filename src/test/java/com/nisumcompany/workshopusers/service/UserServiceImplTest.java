@@ -12,7 +12,6 @@ import com.nisumcompany.workshopusers.infrastructure.persistence.UserRepository;
 import com.nisumcompany.workshopusers.infrastructure.web.exceptions.ExceptionUserExists;
 import com.nisumcompany.workshopusers.mock.UserDtoMock;
 import com.nisumcompany.workshopusers.mock.UserMock;
-import com.nisumcompany.workshopusers.mock.UserResponseDtoMock;
 import com.nisumcompany.workshopusers.model.User;
 import com.nisumcompany.workshopusers.model.mapper.UserMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,9 +45,6 @@ class UserServiceImplTest {
   private UserMock userMock = new UserMock();
   private UserDtoMock userDtoMock = new UserDtoMock();
 
-  private UserResponseDtoMock userResponseDtoMock = new UserResponseDtoMock();
-
-
   private User user = new User();
 
   @BeforeEach
@@ -62,7 +58,7 @@ class UserServiceImplTest {
   @Test
   public void findByIdOk() {
     when(userRepository.findByEmail(Mockito.anyString())).thenReturn(userMock.generate());
-    User userResponse = userServiceImpl.findById("email@email.com");
+    User userResponse = userServiceImpl.findByEmail("email@email.com");
     assertNotNull(userResponse);
 
   }

@@ -37,14 +37,14 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User findById(String email) {
+  public User findByEmail(String email) {
     return userRepository.findByEmail(email);
   }
   @Override
   public UserResponseDto createUser(UserDto userDto) {
         validationService.validationRequest(userDto);
         validationsRegexp.validateEmailAndPassword(userDto);
-        User userResponse = findById(userDto.getEmail());
+        User userResponse = findByEmail(userDto.getEmail());
         if(Objects.isNull(userResponse)) {
           userDto.setModified(LocalDate.now());
           userDto.setLastLogin(LocalDate.now());

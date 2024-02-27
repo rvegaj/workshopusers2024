@@ -6,6 +6,6 @@ import com.nisumcompany.workshopusers.dto.UserResponseDto;
 import com.nisumcompany.workshopusers.model.User;
 
 public interface UserService {
- User findById(String email);
+ User findByEmail(String email);
  UserResponseDto createUser (UserDto user);
 }

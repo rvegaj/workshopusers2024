@@ -27,4 +27,6 @@ http://localhost:8080/h2-console/ con los paramteros de conexión de archivo app
 La Url del swagger es:
 http://localhost:8080/swagger-ui/index.html
   
+
+Los diagramas se encuentra en la carpeta main/resource/static/diagram
   

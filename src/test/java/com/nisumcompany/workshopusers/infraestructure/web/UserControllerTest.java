@@ -77,7 +77,7 @@ class UserControllerTest {
   public void createUserExistsSuccessful() throws Exception {
 
     String  json = mapper.writeValueAsString(userDtoMock.generate());
-    when(userService.findById(Mockito.anyString())).thenReturn(userMock.generate());
+    when(userService.findByEmail(Mockito.anyString())).thenReturn(userMock.generate());
     when(userRepository.findByEmail(Mockito.anyString())).thenReturn(userMock.generate());
     when(userService.createUser(userDtoMock.generate())).thenThrow(new ExceptionUserExists(Constants.MESSAGE_ERROR_EMAIL_REGISTRED));
     this.mockMvc.perform(
