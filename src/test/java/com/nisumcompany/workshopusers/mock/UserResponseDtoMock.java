@@ -1,4 +1,4 @@
-package com.nisumcompany.workshopusers.mocks;
+package com.nisumcompany.workshopusers.mock;
 
 import com.nisumcompany.workshopusers.dto.UserResponseDto;
 import java.time.LocalDate;

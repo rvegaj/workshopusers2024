@@ -3,7 +3,7 @@ package com.nisumcompany.workshopusers.common.validator;
 import com.nisumcompany.workshopusers.common.Constants;
 import com.nisumcompany.workshopusers.common.Utils;
 import com.nisumcompany.workshopusers.dto.UserDto;
-import com.nisumcompany.workshopusers.infrastructure.exceptions.ExceptionRequestInvalid;
+import com.nisumcompany.workshopusers.infrastructure.web.exceptions.ExceptionRequestInvalid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

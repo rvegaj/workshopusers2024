@@ -1,4 +1,4 @@
-package com.nisumcompany.workshopusers.infrastructure.exceptions;
+package com.nisumcompany.workshopusers.infrastructure.web.exceptions;
 
 import com.nisumcompany.workshopusers.dto.ErrorResponse;
 import javax.servlet.http.HttpServletRequest;
