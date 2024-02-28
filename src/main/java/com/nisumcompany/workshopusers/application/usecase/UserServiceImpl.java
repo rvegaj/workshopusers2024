@@ -1,15 +1,15 @@
 package com.nisumcompany.workshopusers.application.usecase;
 
+import com.nisumcompany.workshopusers.domain.model.User;
+import com.nisumcompany.workshopusers.domain.repository.UserRepository;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
+import com.nisumcompany.workshopusers.infrastructure.api.web.exception.ExceptionUserExists;
 import com.nisumcompany.workshopusers.infrastructure.common.Constants;
 import com.nisumcompany.workshopusers.infrastructure.common.assemblers.UserResponseAssembler;
 import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationService;
-import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationsRegexp;
+import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationsRegExp;
 import com.nisumcompany.workshopusers.infrastructure.configuration.JwtUtils;
-import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
-import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
-import com.nisumcompany.workshopusers.domain.repository.UserRepository;
-import com.nisumcompany.workshopusers.infrastructure.api.web.exception.ExceptionUserExists;
-import com.nisumcompany.workshopusers.domain.model.User;
 import com.nisumcompany.workshopusers.infrastructure.mapper.UserMapper;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -26,7 +26,7 @@ public class UserServiceImpl {
   private final UserMapper userMapper;
   private final ValidationService validationService;
 
-  private final ValidationsRegexp validationsRegexp;
+  private final ValidationsRegExp validationsRegexp;
   private final JwtUtils jwtUtils;
 
   public User findByEmail(String email) {

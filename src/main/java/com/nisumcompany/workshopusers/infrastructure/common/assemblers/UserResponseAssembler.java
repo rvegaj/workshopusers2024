@@ -1,7 +1,7 @@
 package com.nisumcompany.workshopusers.infrastructure.common.assemblers;
 
-import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
 import com.nisumcompany.workshopusers.domain.model.User;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
 import java.util.Objects;
 
 public class UserResponseAssembler {

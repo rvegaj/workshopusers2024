@@ -1,16 +1,16 @@
 package com.nisumcompany.workshopusers.infrastructure.common.validator;
 
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
 import com.nisumcompany.workshopusers.infrastructure.api.web.exception.ExceptionRequestInvalid;
 import com.nisumcompany.workshopusers.infrastructure.common.Constants;
 import com.nisumcompany.workshopusers.infrastructure.common.Utils;
-import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class ValidationsRegexp {
+public class ValidationsRegExp {
 
   @Value("${spring.regular-expression.email}")
   private  String regularExpEmail;

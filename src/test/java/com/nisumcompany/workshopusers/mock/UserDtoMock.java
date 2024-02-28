@@ -31,6 +31,7 @@ public class UserDtoMock {
         .modified(LocalDate.now())
         .token("eyJhbGciOiJIUzI1NiJ9")
         .phones(phoneDtoList)
+         .password("Contrasenia123*")
         .build();
         phoneDtoList.add(phoneDto);
 

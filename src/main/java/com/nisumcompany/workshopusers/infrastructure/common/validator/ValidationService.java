@@ -1,8 +1,8 @@
 package com.nisumcompany.workshopusers.infrastructure.common.validator;
 
-import com.nisumcompany.workshopusers.infrastructure.common.Constants;
 import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
 import com.nisumcompany.workshopusers.infrastructure.api.web.exception.ExceptionRequestInvalid;
+import com.nisumcompany.workshopusers.infrastructure.common.Constants;
 import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.validation.ConstraintViolation;

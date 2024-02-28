@@ -1,7 +1,7 @@
 package com.nisumcompany.workshopusers.infrastructure.mapper;
 
-import com.nisumcompany.workshopusers.infrastructure.api.dto.PhoneDto;
 import com.nisumcompany.workshopusers.domain.model.Phone;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.PhoneDto;
 import lombok.Generated;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

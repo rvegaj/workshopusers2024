@@ -3,10 +3,8 @@ package com.nisumcompany.workshopusers.application.usecase;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
-
-import com.nisumcompany.workshopusers.application.usecase.UserServiceImpl;
 import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationService;
-import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationsRegexp;
+import com.nisumcompany.workshopusers.infrastructure.common.validator.ValidationsRegExp;
 import com.nisumcompany.workshopusers.infrastructure.configuration.JwtUtils;
 import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
 import com.nisumcompany.workshopusers.domain.repository.UserRepository;
@@ -34,7 +32,7 @@ class UserServiceImplTest {
   private ValidationService validationService;
 
   @Mock
-  private ValidationsRegexp validationsRegexp;
+  private ValidationsRegExp validationsRegexp;
 
   @Mock
   private UserMapper userMapper;
