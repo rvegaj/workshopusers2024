@@ -1,7 +1,7 @@
 package com.nisumcompany.workshopusers.mock;
 
-import com.nisumcompany.workshopusers.dto.PhoneDto;
-import com.nisumcompany.workshopusers.dto.UserDto;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.PhoneDto;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserDto;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.nisumcompany.workshopusers.mock;
 
-import com.nisumcompany.workshopusers.model.User;
+import com.nisumcompany.workshopusers.domain.model.User;
 import java.time.LocalDate;
 
 public class UserMock {

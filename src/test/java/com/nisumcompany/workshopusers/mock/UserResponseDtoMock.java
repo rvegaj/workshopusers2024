@@ -1,6 +1,6 @@
 package com.nisumcompany.workshopusers.mock;
 
-import com.nisumcompany.workshopusers.dto.UserResponseDto;
+import com.nisumcompany.workshopusers.infrastructure.api.dto.UserResponseDto;
 import java.time.LocalDate;
 
 public class UserResponseDtoMock {
